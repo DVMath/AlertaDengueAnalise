@@ -6,9 +6,14 @@ require("R0")
 require("surveillance")
 
 
-source("../fun/Rt.r")
-source("../fun/data2SE.r")
-source("../fun/corrigecasos.r")
+source("./Rt.r")
+source("./data2SE.r")
+source("./corrigecasos.r")
+
+#source("../fun/Rt.r")
+#source("../fun/data2SE.r")
+#source("../fun/corrigecasos.r")
+
 
 calcdfRt <- function() {
 # Abre os dados mais recentes
@@ -196,6 +201,9 @@ message("TDall")
 
 #plot(TD.weekly)
 
+x1 <- dfRt$Rt >1
+df2 <- cbind(dfRt, data.frame(liv=as.integer(x1)))
+df2$liv[df2$liv==FALSE] <- NA
 
-return(dfRt)
+return(df2)
 }

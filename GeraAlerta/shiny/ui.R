@@ -5,6 +5,7 @@ d<-read.csv("./dadosAPS_201514.csv")
 listaAPS<-unique(d$APS)
 nAPS <- length(listaAPS)
 
+
 # Define UI for slider demo application
 shinyUI(pageWithSidebar(
   
@@ -23,8 +24,12 @@ shinyUI(pageWithSidebar(
     
     selectInput(inputId = "ttype",
                 label = "Type",
-                choices = c("Incidence", "Rt"),
+                choices = c("Incidence", "Rt", "Level"),
                 selected = "Rt"),
+    
+    sliderInput("range", "Range:",
+                min = 1, max = maxtime, value = c(1,maxtime)),
+    
     tags$br(),
     h5("Created by:"),
     tags$a("Daniel A. M. Villela", 

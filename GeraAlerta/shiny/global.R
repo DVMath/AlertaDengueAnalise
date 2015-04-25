@@ -4,3 +4,5 @@ d<-read.csv(dadosAPS)
 source("./calcRt.r")
 
 dfRt <- calcdfRt()
+
+maxtime <- max(dfRt$time)
